@@ -70,9 +70,9 @@ const resolvers = {
       if (index !== -1) {
         const updatedNote = {
             id,
-            title: title !== undefined ? title : notes[index].title,
-            content: content !== undefined ? content : notes[index].content,
-            author: author !== undefined ? author : notes[index].author,
+            title: title !== undefined && title !== null ? title : notes[index].title,
+            content: content !== undefined && content !== null ? content : notes[index].content,
+            author: author !== undefined && author !== null ? author : notes[index].author,
           };
         notes[index] = updatedNote;
         const changePayload = { note: updatedNote, status: NOTE_STATUS.UPDATED };
